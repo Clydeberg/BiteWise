@@ -1,0 +1,15 @@
+backend/
+│
+├── app/
+│   ├── main.py
+│   ├── api/
+│   │   └── search.py
+│   │
+│   ├── services/
+│   │   └── eatsure_adapter.py
+│   │
+│   └── schemas/
+│       └── search_schema.py
+│
+├── requirements.txt
+└── .env
