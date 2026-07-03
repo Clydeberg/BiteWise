@@ -17,6 +17,7 @@ class NutritionService:
                 "protein": 22,
                 "carbs": 70,
                 "fat": 24
+                
             }
         
         return{

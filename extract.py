@@ -1,6 +1,6 @@
 import json
 
-with open("resp.txt", "r", encoding="utf-8") as f:
+with open("response.txt", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 results = []

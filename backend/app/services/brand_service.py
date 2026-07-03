@@ -1,6 +1,11 @@
 import requests
 
 class BrandService:
+
+    def __init__(self):
+        self.cache={}
+
+    
     BASE_URL=(
         "https://www.eatsure.com/v1/api/get_all_brands"
     )
@@ -9,17 +14,28 @@ class BrandService:
             self,
             store_id,
             city_id,
-            cookies
+            cookies,
+            headers,
     ):
+        cache_key = f"{store_id}:{city_id}"
+        if cache_key in self.cache:
+            return self.cache[cache_key]
+        
+        
         response = requests.get(
             self.BASE_URL,
             params={
                 "store_id": store_id,
                 "city_id":city_id
             },
-            cookies=cookies
+            cookies=cookies,
+            headers=headers
         )
-
+        # print(cookies)
+        # print(headers)
+        # print(response.json())
+        # print(response.status_code)
+        # print(response.text[:500])
         response.raise_for_status()
         brands = response.json()["data"]["data"]
 
@@ -35,4 +51,5 @@ class BrandService:
 
                 "main_offering": brand["main_offering"]
             })
+        self.cache[cache_key]=normalized
         return normalized

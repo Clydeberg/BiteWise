@@ -7,9 +7,9 @@ class BrandRecommender:
                 brand["main_offering"].lower()
             )
             if(
-                goal=="high_protien" 
+                goal=="high_protein" 
                 and (
-                    "wrap" in offering or "bowl in offering"
+                    "wrap" in offering or "bowl" in offering
                 )
             ):
                 recommendations.append(brand)
@@ -33,5 +33,5 @@ class BrandRecommender:
                     brand
                 )
 
-            return recommendations
+        return recommendations
         
